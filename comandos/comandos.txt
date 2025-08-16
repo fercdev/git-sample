@@ -1,0 +1,49 @@
+# tenemos un proyecto nuevo desde cero en el cual empezamos en local y vamos hasta remoto
+
+git init # el cual nos permite inicializar el repositorio en mi entorno local (desktop-ordenador)
+
+git add . # nos permitio agregar todos los cambios existentes
+git add feature1.txt  # permite agregar de manera especifica
+git add ejemplos/   # permite agregar en bloque
+
+git status # nos permite ver los cambios en linea que se van agregar al commit
+git branch # nos permite ver en que rama estamos trabajando
+
+git checkout -b "nombreRama" # para crear y moverme a la nueva rama
+
+git checkout "nombreRama" # para moverme en caso sea una rama existente
+
+git log # nos permite ver el historial de commits dentro de mi rama
+gitk # nos permite ver el historico de manera visual de todo mi repositorio con respectivo detalle
+
+git commit -m "descriptivo del cambio" # para poder grabar el historico de cambios en nuestra rama
+
+git remote add origin "urlDelRepositorioRemoto" # permite asociar mi repositorio remoto con mi repositorio local
+
+git push origin "nombreRama" # para subir mis cambios al repositorio remoto
+git pull origin "nombreRama" # para bajar mis cambios al repositorio remoto (sincronizar)
+
+git merge "nombreRama" # para fusionar los cambios de dos ramas (resolver conflictos en local)
+
+
+
+# CASO 2: tenemos un proyecto en remoto y vamos hasta local
+
+1- git clone "urlRepositorioRemoto"   # sirve para clonar el repositorio remoto 
+    ejemplo: git clone https://github.com/fercdev/git-sample.git  # tener en cuenta que nos estamos bajando la rama master
+
+1.5- git log
+
+2- git checkout "nombreRama"
+2.5- git pull origin "nombreRama"  # sugerencia
+3- git add .
+3.5- git stash # en caso se crucen los archivos modificados por dos desarrolladores (para guardar cambios en memorio que luego voy aplicar)
+    - git stash -u # agrega carpetas o archivos nuevos (untracked)
+    - git stash list # para ver mi listado de cambios temporales
+    - git stash apply # para aplicar el ultimo cambio en memoria
+    - git stash drop # para remover el stash ya aplicado
+
+4- git status
+5- git branch
+6- git commit -m "descriptivo del cambio"
+7- git push origin "nombreRama" 
