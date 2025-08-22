@@ -47,3 +47,23 @@ git merge "nombreRama" # para fusionar los cambios de dos ramas (resolver confli
 5- git branch
 6- git commit -m "descriptivo del cambio"
 7- git push origin "nombreRama" 
+
+----------------------------------------------------------------------------------
+
+8- git reset HEAD~1     --> en caso quiera hacer un mixed reset al penultimo commit
+8.1-git reset --soft <HASH_ID> --> en caso quiera hacer un reset y mantener lo cambios agregados, listos para hacer commit
+8.2-git reset --mixed <HASH_ID> o git reset <HASH_ID> ->en caso quiera hacer un reset y mantener lo cambios sin agregar (faltaria git add y git commit)
+8.2-git reset --hard <HASH_ID> --> en caso quiera realizar una eliminacion de todos los cambios del commit. (usar con precaucion)
+8.3- git push --force-with-lease origin "rama"  --> en caso quieran sincronizar de manera forzada la rama remota con la rama local
+
+----------------------------------------------------------------------------------
+
+9- git checkout "rama" -- hacer cambio entre ramas
+9.1- git checkout -b "nuevaRama" -- para crear nueva rama
+9.2- git checkout -- archivo.txt -- para regresar a un estado anterior del archivo
+9.3- git checkout "HASH_ID" en caso quiera cambiar entre commits y ver sus modificaciones
+
+----------------------------------------------------------------------------------
+
+10- git revert <HASH_ID> --> para revertir commits hasta el commit especificado por su ID, se crea un nuevo commit que deshace los commits previos
+10.1 -- git revert --continue --> (en caso exista conflictos)
